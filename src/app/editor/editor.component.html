@@ -1,0 +1,80 @@
+<!-- popup window -->
+<div mdbModal #frame="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-info" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Account Completion.</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <i class="fa fa-bell fa-4x animated rotateIn mb-4"></i>
+        <p>Please complete your profile to add articles. Do you want
+           to complete your profile now?
+        </p>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer flex-center">
+        <a [routerLink]="['/users/profile',userName]" mdbBtn color="primary" class="waves-light" mdbWavesEffect>Yes</a>
+        <a type="button" mdbBtn color="primary" outline="true" class="waves-light" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">No</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
+
+
+<!-- form -->
+
+<div class="container col-md-6 cont">
+  <form #form='ngForm' (ngSubmit)="onSubmit(form)">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Name of the Writer*</label>
+      <input type="text" [ngModel]="profileName" name="name" [disabled]="enablesubmit" required class="form-control" id="exampleInputEmail1">
+      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      <!-- <p>{{name}}</p> -->
+    </div>
+    
+    <div class="form-row">
+      <div class="col-md-6 form-group">
+        <label for="articleInput">Name of Article*</label>
+        <input type="text" ngModel name="articleName" required class="form-control" id="articleInput" aria-describedby="emailHelp" placeholder="Enter Article Name">
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="datepicker">Release Date*</label>
+        <input type="text"
+          id="datepicker"
+          class="form-control"
+          bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" [(ngModel)]="releaseDate" name="releaseDate">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="imgURLInput">Image URL</label>
+      <input type="text" ngModel name="imgURL" class="form-control" id="imgURLInput" aria-describedby="emailHelp" placeholder="Enter Image URL">
+      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+    </div>
+    <div class="form-group">
+      <label for="readMoreURLID">Read More URL</label>
+      <input type="text" ngModel name="readMoreURL" class="form-control" id="readMoreURLID" aria-describedby="emailHelp" placeholder="Enter Read More Name">
+      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+    </div>
+    <div class="form-group shadow-textarea">
+      <label for="exampleFormControlTextarea6">Write your Article*</label>
+      <textarea style="height: 220px;" ngModel name="article" required class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Write something here..."></textarea>
+    </div>
+    <div class="form-row" style="float: right;">
+      <button type="submit" [disabled]="!form.valid" class="btn btn-primary" style="width: 120px;">Submit</button>
+    </div>
+  </form>
+  </div>
+  
+		<!-- <app-ngx-editor [config]="editorConfig" [spellcheck]="true" [(ngModel)]="htmlContent"></app-ngx-editor> -->
+
+
+  

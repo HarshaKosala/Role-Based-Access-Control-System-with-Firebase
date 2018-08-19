@@ -1,0 +1,48 @@
+#back {
+    margin-top: -46px;
+    background:#3B5998 url('/assets/images/bg1.jpg');
+    -webkit-background-size: cover;
+    background-size: cover;
+    padding-top: 40px;
+}
+
+input,textarea{
+    background-color: transparent;
+    // color: wheat;
+    // border : none;
+    // border-bottom: 1px solid white;
+    // height: 40px;
+    color: #ffffff;
+    // outline: none;
+    border-color: #3B5998;
+}
+
+input :focus{
+    background-color: transparent;
+}
+
+.form-area{
+    background: rgba(39, 39, 39, 0.5);
+    border-radius: 5px;
+}
+.form-area label{
+    // font-weight: bold;
+    color: white;
+    font-size: 15px;
+}
+
+h3{
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: wheat;
+}
+
+::placeholder{
+    color: white;
+}
+
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
+    background-color: transparent;
+    color: #ffffff;
+    border : 2px solid red;
+}

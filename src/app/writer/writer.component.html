@@ -1,0 +1,145 @@
+<div class="container" style="background-color: white; margin-top: -44px; padding-top: 1px; padding-bottom: 5px;">
+  <!-- Section: Testimonials v.2 -->
+  <section *ngIf="prof" class="text-center my-5">
+
+    <!-- Section heading -->
+    <h2 class="h1-responsive font-weight-bold my-5">{{name}}</h2>
+
+    <!-- Carousel Wrapper -->
+    <div id="carousel-example-1" class="carousel no-flex testimonial-carousel slide carousel-fade" data-ride="carousel" data-interval="false">
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+        <!--First slide-->
+        <div>
+          <div class="testimonial">
+            <!--Avatar-->
+            <div class="avatar mx-auto mb-4">
+              <img [src]="prof.profilePicURL != '' ? prof.profilePicURL : 'https://www.allsportsphysio.com.au/wp-content/uploads/2016/11/dummy-profile-pic-male1-300x300.jpg'"
+                class="rounded-circle img-fluid" style="width: 200px; height: 200px;" alt="First sample avatar image">
+            </div>
+            <!--Content-->
+            <p>
+              <i class="fa fa-quote-left"></i> {{prof.about}} <i class="fa fa-quote-right"></i>
+            </p>
+            <h6 class="font-weight-bold"> <i *ngIf="prof.address" class="fas fa-envelope" style="opacity: 0.6; margin-right: 10px;"></i>
+              {{prof.address}}</h6>
+            <h6 class="font-weight-bold"> <i *ngIf="prof.email" class="fas fa-at" style="opacity: 0.6; margin-right: 10px;"></i>
+              {{prof.email}}</h6>
+
+            <!-- <h6 class="font-weight-bold my-3">{{prof.address}}</h6> -->
+            <!--Review-->
+            <i class="fa fa-star blue-text"> </i>
+            <i class="fa fa-star blue-text"> </i>
+            <i class="fa fa-star blue-text"> </i>
+            <i class="fa fa-star blue-text"> </i>
+            <i class="fa fa-star-half-full blue-text"> </i>
+          </div>
+        </div>
+        <!--First slide-->
+        <!-- <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-email" style="size: 30px;">
+          <i class="fas fa-envelope"></i>
+        </a> -->
+        <!-- Facebook-->
+        <!-- <a *ngIf="prof.fbURL" [href]="prof.fbURL">
+          <i class="fa fa-facebook-official" aria-hidden="true"></i>
+        </a> -->
+        <!-- GitHub-->
+        <!-- <a *ngIf="prof.linkedInURL" [href]="prof.fbUlinkedInURLRL" type="button" class="btn-floating btn-sm mx-1 mb-0 btn-git">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a *ngIf="prof.tweeterURL" [href]="prof.tweeterURL" type="button" class="btn-floating btn-sm mx-1 mb-0 btn-git">
+          <i class="fab fa-twitter"></i>
+        </a> -->
+      </div>
+      <!-- Social shares -->
+      <hr class="my-5">
+      <div class="social-counters">
+        <!-- Facebook -->
+        <a *ngIf="prof.fbURL" [href]="prof.fbURL" target="_blank" class="btn btn-fb" style="background-color: rgb(59, 89, 152)">
+          <i class="fa fa-facebook pr-2"></i>
+          <span class="clearfix d-none d-md-inline-block">Facebook</span>
+        </a>
+
+        <!-- Twitter -->
+        <a *ngIf="prof.tweeterURL" [href]="prof.tweeterURL" target="_blank" class="btn btn-tw" style="background-color: rgb(29, 161, 242)">
+          <i class="fa fa-twitter pr-2"></i>
+          <span class="clearfix d-none d-md-inline-block">Twitter</span>
+        </a>
+
+        <!-- Google+ -->
+        <a class="btn btn-gplus" target="_blank" style="background-color: rgb(219, 68, 55)">
+          <i class="fa fa-google-plus pr-2"></i>
+          <span class="clearfix d-none d-md-inline-block">Google+</span>
+        </a>
+
+        <!-- Comments -->
+        <a *ngIf="prof.linkedInURL" [href]="prof.fbUlinkedInURLRL" target="_blank" class="btn btn-default" style="background-color: rgb(0, 119, 181)">
+          <i class="fa fa-linkedin pr-2"></i>
+          <span class="clearfix d-none d-md-inline-block">LinkedIn</span>
+        </a>
+
+      </div>
+      <!-- Social shares -->
+
+
+      <!--Slides-->
+      <!--Controls-->
+      <a class="carousel-item-prev left carousel-control" href="#carousel-example-1" role="button" data-slide="prev">
+        <span class="icon-prev" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-item-next right carousel-control" href="#carousel-example-1" role="button" data-slide="next">
+        <span class="icon-next" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      <!--Controls-->
+    </div>
+    <!-- Carousel Wrapper -->
+
+  </section>
+  <!-- Section: Testimonials v.2 -->
+
+  <div *ngIf="user && senderProf" class="form-row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <!--Section: Leave a reply (Logged In User)-->
+      <section>
+
+        <!--Leave a reply form-->
+        <div class="reply-form" style="margin-top: -60px">
+          <h2 class="h1 section-heading">Leave a Message </h2>
+          <!-- <p class="text-center">(Logged In User)</p> -->
+
+          <!--Third row-->
+          <div class="row">
+            <!--Image column-->
+            <div class="col-sm-2 col-12">
+              <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" class="avatar rounded-circle z-depth-1-half">
+            </div>
+            <!--/.Image column-->
+            <!-- <form #form="ngForm" (ngSubmit)="onSubmit(form)"> -->
+            <!--Content column-->
+            <div class="col-sm-10 col-12">
+              <div class="md-form">
+                <textarea type="text" id="form8" [(ngModel)]="message" name="message" #mess="ngModel" required class="md-textarea form-control"
+                  mdbInputDirective></textarea>
+                <label for="form8">Your message</label>
+              </div>
+
+            </div>
+
+            <div class="text-center mx-auto">
+              <button [disabled]="!message" (click)="onSubmit(mess)" mdbBtn color="primary" class="waves-light" mdbWavesEffect>Submit</button>
+            </div>
+            <!--/.Content column-->
+            <!-- </form> -->
+          </div>
+          <!--/.Third row-->
+        </div>
+        <!--/.Leave a reply form-->
+
+      </section>
+      <!--/Section: Leave a reply (Logged In User)-->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container" style="margin-top: -43px;padding-top: 34px; padding-bottom: 34px;">
+  <!--Main wrapper-->
+  <div *ngIf="!messages">
+    <h3>No Messages</h3>
+  </div>
+  <div *ngIf="messages" class="comments-list text-left">
+    <div class="section-heading">
+      <h3>All Messages <span class="badge blue">{{messages.length}}</span></h3>
+    </div>
+    <!--First row-->
+    <div *ngFor="let message of messages" class="row">
+      <!--Image column-->
+      <div class="col-sm-2 col-12" style="height: 100px; width: 100px;">
+        <img [src]="message.senderImg" class="avatar rounded-circle z-depth-1-half" style="height: 100px; width: 100px;">
+      </div>
+      <!--/.Image column-->
+      <!--Content column-->
+      <div class="col-sm-10 col-12">
+        <a><h3 class="user-name">{{message.senderName}}</h3></a>
+        <div class="card-data" style="margin-left: -22px;">
+          <ul class="pl-0 list-unstyled">
+            <li class="comment-date"><i class="fa fa-clock-o"></i>{{message.date}}</li>
+          </ul>
+        </div>
+        <p class="comment-text">{{message.message}}</p>
+      </div>
+      <!--/.Content column-->
+    </div>
+    <!--/.First row-->
+  </div>
+  <!--/.Main wrapper-->
+</div>

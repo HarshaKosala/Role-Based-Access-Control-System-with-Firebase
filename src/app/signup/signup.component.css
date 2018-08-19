@@ -1,0 +1,11 @@
+#create {
+    width:20%;
+    margin: 0.1em auto -4.5em auto;
+    display:block;
+    
+}
+
+#signup{
+    background: #3B8598 url('/assets/images/group.svg') no-repeat 25px;
+    background-size: 40px;
+}

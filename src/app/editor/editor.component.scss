@@ -1,0 +1,19 @@
+.shadow-textarea textarea.form-control::placeholder {
+    font-weight: 300;
+}
+.shadow-textarea textarea.form-control {
+    padding-left: 0.8rem;
+}
+div.cont{
+    background-color: white;
+    padding: 20px;
+    margin-top: -29px;
+    height: auto;
+    border-radius: 5px;
+    padding-bottom: 75px;
+}
+
+:host #discipline-qe /deep/ .ql-container{
+    height: 250px;
+  }
+  

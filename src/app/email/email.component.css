@@ -1,0 +1,11 @@
+#login {
+    width:20%;
+    margin: 0.1em auto -3em auto;
+    display:block;
+    
+}
+
+#log{
+    background: #3B8598 url('/assets/images/log-in.svg') no-repeat 25px;
+    background-size: 40px;
+}

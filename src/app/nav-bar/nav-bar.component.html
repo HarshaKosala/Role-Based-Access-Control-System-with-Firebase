@@ -1,0 +1,79 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+
+    <!-- Navbar brand -->
+    <logo><a class="navbar-brand" routerLink="/home">Angular Firebase</a></logo>
+
+    <!-- Collapsible content -->
+    <links>
+
+        <!-- Links -->
+        <span class="space"></span>
+        <ul style="float: right ;" class="navbar-nav mr-auto">
+
+            <li class="nav-item active">
+                <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li *ngIf="!user" class="nav-item">
+                <a routerLink="/login" class="nav-link waves-light" mdbWavesEffect>Login</a>
+            </li>
+            <li *ngIf="!user" class="nav-item">
+                <a routerLink="/signup" class="nav-link waves-light" mdbWavesEffect>Signup</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/Article" class="nav-link waves-light" mdbWavesEffect>Article</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/Editor" class="nav-link waves-light" mdbWavesEffect>Editor</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/Admin" class="nav-link waves-light" mdbWavesEffect>Admin</a>
+            </li>
+
+
+
+            <!-- Dropdown -->
+            <li *ngIf="user" class="nav-item dropdown" dropdown style="background-color: purple; border-radius: 3px;">
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                    <ng-container *ngIf="profile; then profileNav else defaultNav"></ng-container>
+                    <ng-template #profileNav>
+                        <img [src]="profile.profilePicURL != '' ? profile.profilePicURL : 'https://www.allsportsphysio.com.au/wp-content/uploads/2016/11/dummy-profile-pic-male1-300x300.jpg'"
+                            style="width: 25px; border-radius: 20px; margin-right: 10px;">
+                    </ng-template>
+                    <ng-template #defaultNav>
+                        <img [src]="user.photoURL !=null ? user.photoURL : 'https://www.allsportsphysio.com.au/wp-content/uploads/2016/11/dummy-profile-pic-male1-300x300.jpg'"
+                            style="width: 25px; border-radius: 20px; margin-right: 10px;">
+                    </ng-template>
+
+                    {{user.displayName}} <span class="caret"></span></a>
+
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/users">
+                        <i class="far fa-user-circle" style="margin-right: 15px"></i>View Profile</a>
+                    <!-- <a *ngIf="user.photoURL!=null" class="dropdown-item waves-light" mdbWavesEffect href="#"><img  [src]="user.photoURL" style="width: 50px;"></a>
+                  <a class="dropdown-item waves-light" mdbWavesEffect href="#">Admin : {{user.roles.Admin}}</a> -->
+                    <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/users/Messages">
+                        <i class="far fa-envelope" style="margin-right: 15px"></i>Messages</a>
+                    <a *ngIf="profile" [routerLink]="['/users/profile',profile.name]" class="dropdown-item waves-light" mdbWavesEffect routerLink="">
+                        <i class="fas fa-cog" style="margin-right: 15px"></i>Settings</a>
+                    <div class="divider dropdown-divider"></div>
+                    <a class="dropdown-item waves-light" (click)="afs.logOut()" mdbWavesEffect>
+                        <i class="fas fa-sign-out-alt" style="margin-right: 15px"></i>Logout</a>
+
+                </div>
+            </li>
+
+        </ul>
+        <!-- Links -->
+
+        <!-- Search form -->
+        <!-- <form class="form-inline waves-light" mdbWavesEffect>
+          <div class="md-form mt-0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          </div>
+      </form> -->
+    </links>
+    <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->

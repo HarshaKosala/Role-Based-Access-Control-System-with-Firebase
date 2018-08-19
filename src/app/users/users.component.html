@@ -1,0 +1,28 @@
+<div class="form-container" id="toolbar">
+  <header [@fallIn]="state">
+    <button (click)="afs.logOut()" class="basic-btn" >Logout</button>
+  </header>
+  <div id="page" [@moveInLeft]="state">
+    <!-- <h2 *ngIf="name | async as name">Hey {{ name.displayName }} !</h2>
+    <div *ngIf="afs.authUser | async as authUser">
+      <img *ngIf="authUser.photoURL!=null" [src]="authUser.photoURL" style="width: 150px;">
+    </div> -->
+    
+    <div *ngIf="user">
+      <h2>Hey {{user.displayName}} !</h2>
+      <img *ngIf="user.photoURL!=null" [src]="user.photoURL" style="width: 150px;">
+      <p>Admin : {{user.roles.Admin}}</p>
+      <p>Subscriber : {{user.roles.Subscriber}}</p>
+      <p>Editor : {{user.roles.Editor}}</p>
+    </div>
+    <!-- <img src="/assets/images/filler.png" /> -->
+ 
+    <!-- <ul class="list-group" style="margin-top: 20px">
+      <div  *ngFor="let item of detailList">
+        <h3>{{item.height}}</h3>
+        <p>{{item.name}}</p>
+      </div>
+    </ul> -->
+  </div>
+  
+</div>

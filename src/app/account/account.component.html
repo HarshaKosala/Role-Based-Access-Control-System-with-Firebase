@@ -1,0 +1,103 @@
+<!-- <button type="button" style="width: 100px;" mdbBtn color="primary" class="waves-light" data-toggle="modal" data-target="#basicExample" (click)="frame.show()"
+  mdbWavesEffect>Launch Modal</button> -->
+  <!-- <a routerLink="/users/profile" mdbBtn color="primary" class="waves-light" mdbWavesEffect>Yes</a> -->
+  
+  <div mdbModal #frame="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-info" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Account Completion.</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <i class="fa fa-bell fa-4x animated rotateIn mb-4"></i>
+        <p>You did't complete your profile. You can't add articles without complete your profile. Do you want
+           to complete your profile now?
+        </p>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer flex-center">
+        <a [routerLink]="['/users/profile',userName]" mdbBtn color="primary" class="waves-light" mdbWavesEffect>Yes</a>
+        <a type="button" mdbBtn color="primary" outline="true" class="waves-light" mdbWavesEffect data-dismiss="modal" (click)="hideFrame()">No</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
+<div class="container">
+  <!--Author box-->
+<div class="author-box" *ngIf="user">
+  <!--Name-->
+  <h3 class="h3-responsive text-center">Hey {{userName}}</h3>
+  <hr>
+  <div class="row">
+      <!--Avatar-->
+      <div class="col-12 col-sm-2">
+        
+        <ng-container *ngIf="profile; then profilePic else defaultPic"></ng-container>
+        <ng-template #profilePic>
+          <img [src]="profile.profilePicURL != '' ? profile.profilePicURL : 'https://www.allsportsphysio.com.au/wp-content/uploads/2016/11/dummy-profile-pic-male1-300x300.jpg'" class="img-fluid rounded-circle z-depth-2">
+        </ng-template>
+        <ng-template #defaultPic>
+          <img [src]="user.photoURL != null ? user.photoURL : 'https://www.allsportsphysio.com.au/wp-content/uploads/2016/11/dummy-profile-pic-male1-300x300.jpg'" class="img-fluid rounded-circle z-depth-2">
+        </ng-template>
+      </div>
+      
+      <!--Author Data-->
+      
+      <div class=" col-12 col-sm-10">
+          <!-- <p><strong>{{userName}}</strong></p> -->
+          <div class="personal-sm">
+
+              <ng-container *ngIf="profile; then profileURL else defaultURL"></ng-container>
+              <ng-template #profileURL>
+                <!-- <a  class="email-ic"><i class="fa fa-home" style="margin-right: 15px"> </i></a> -->
+                <a [href]="profile.fbURL != '' ? profile.fbURL:'helll'" target="_blank" class="fb-ic"><i class="fa fa-facebook" style="margin-right: 15px"> </i></a>
+                <a [href]="profile.tweeterURL != '' ? profile.tweeterURL:''" target="_blank" class="tw-ic"><i class="fa fa-twitter" style="margin-right: 15px"> </i></a>
+                <!-- <a class="gplus-ic"><i class="fa fa-google-plus" style="margin-right: 15px"> </i></a> -->
+                <a [href]="profile.linkedInURL != '' ? profile.linkedInURL:''" target="_blank" class="li-ic"><i class="fa fa-linkedin" style="margin-right: 15px"> </i></a>
+                <!-- <a class="email-ic"><i class="fa fa-envelope-o" style="margin-right: 15px"> </i></a> -->
+              </ng-template>
+              <ng-template #defaultURL>
+                <!-- <a  class="email-ic"><i class="fa fa-home" style="margin-right: 15px"> </i></a> -->
+                <a class="fb-ic"><i class="fa fa-facebook" style="margin-right: 15px"> </i></a>
+                <a class="tw-ic"><i class="fa fa-twitter" style="margin-right: 15px"> </i></a>
+                <!-- <a class="gplus-ic"><i class="fa fa-google-plus" style="margin-right: 15px"> </i></a> -->
+                <a class="li-ic"><i class="fa fa-linkedin" style="margin-right: 15px"> </i></a>
+                <!-- <a class="email-ic"><i class="fa fa-envelope-o" style="margin-right: 15px"> </i></a> -->
+              </ng-template>
+              
+          </div>
+          <!-- <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p> -->
+          <!-- <p  class="hidden-md-down">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint esse nulla quia quam veniam commodi dicta, iusto inventore. Voluptatum pariatur eveniet ea, officiis vitae praesentium beatae quas libero, esse facere.
+          </p> -->
+
+          <ng-container *ngIf="profile; then profileAbout else defaultAbout"></ng-container>
+          <ng-template #profileAbout>
+            <p class="hidden-md-down">{{profile.about}}</p>
+          </ng-template>
+          <ng-template #defaultAbout>
+            <p  class="hidden-md-down">Hey, I'm a article reader and i use this site to read articles to improve my general knowledge
+            </p>
+          </ng-template>
+
+          <p *ngIf="profile"><i class="fa fa-envelope-o" style="margin-right: 15px"> </i>{{profile.address}}</p>
+          
+          <ng-container *ngIf="profile; then profileEmail else defaultEmail"></ng-container>
+          <ng-template #profileEmail>
+              <p><i class="fas fa-at" style="margin-right: 15px; opacity: 0.75;"> </i>{{profile.email}}</p>
+          </ng-template>
+          <ng-template #defaultEmail>
+              <p><i class="fas fa-at" style="margin-right: 15px; opacity: 0.5;"> </i>{{user.email}}</p>
+          </ng-template>
+      </div>
+  </div>
+</div>
+<!--/.Author box-->
+</div>
