@@ -89,7 +89,7 @@ export class AdminComponent implements OnInit {
     this.users = [];
     collection$.subscribe(data => {
       this.users = data;
-      console.log(this.users);
+      // console.log(this.users);
       this.dataSource = new MatTableDataSource(this.users);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -111,7 +111,7 @@ export class AdminComponent implements OnInit {
   trueVal: boolean = true;
   falseVal: boolean = false;
   updateRoles(row){
-    console.log(row);
+    // console.log(row);
     const userRef : AngularFirestoreDocument<any> = this.as.afs.doc(`users/${row.uid}`);
     const data: User = {
       uid : row.uid,

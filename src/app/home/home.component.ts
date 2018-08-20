@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getArtcles();
-    console.log("home");
+    // console.log("home");
     this.afs.$user.subscribe(user => {
       this.user = user;
       // console.log(this.user);
@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
 
       this.data = data.filter(c => c.imgURL != "");
       if (this.data.length > 0) {
-        console.log(this.data);
+        // console.log(this.data);
         this.firstArticle = this.data[2];
         this.firstArticle.article = this.firstArticle.article
           .slice(0, 240)

@@ -47,7 +47,7 @@ export class EditorComponent implements OnInit {
       if(profile){
         this.profileName = profile.name;
         this.enablesubmit = true;
-        console.log(this.enablesubmit);
+        // console.log(this.enablesubmit);
       }
     })
     });
@@ -57,7 +57,7 @@ export class EditorComponent implements OnInit {
     if(this.enablesubmit==false){
       this.basicModal.show();
     }else{
-      console.log(form.value);
+      // console.log(form.value);
       this.addArticle(form.value);
     }
     form.reset();
@@ -88,6 +88,6 @@ export class EditorComponent implements OnInit {
   }
 
   func(event){
-    console.log(event.target);
+    // console.log(event.target);
   }
 }

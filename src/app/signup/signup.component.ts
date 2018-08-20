@@ -46,7 +46,7 @@ export class SignupComponent implements OnInit {
               }
 
   ngOnInit() {
-    console.log('signup');
+    // console.log('signup');
     const collection: AngularFirestoreCollection<any> = this.afs.collection('items');
   }
 
@@ -69,7 +69,7 @@ export class SignupComponent implements OnInit {
  
   name : string;
   updateUser(user){
-    console.log(user);
+    // console.log(user);
     const userRef : AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const data: User = {
       uid : user.uid,

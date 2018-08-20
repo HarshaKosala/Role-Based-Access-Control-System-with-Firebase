@@ -29,7 +29,7 @@ export class MessagesComponent implements OnInit {
         collectionSender$.subscribe(messages => {
           if (messages) {
             this.messages = messages;
-            console.log(this.messages);
+            // console.log(this.messages);
           }
         });
       }

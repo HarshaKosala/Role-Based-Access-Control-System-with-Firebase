@@ -54,14 +54,14 @@ export class WriterComponent implements OnInit {
         collectionSender$.subscribe(profile => {
           if (profile.length != 0) {
             this.senderProf = profile[0];
-            console.log(this.senderProf);
+            // console.log(this.senderProf);
           }
         });
       }
     });
     this.route.params.subscribe((params: Params) => {
       this.name = params["name"];
-      console.log(this.name);
+      // console.log(this.name);
 
       const collection: AngularFirestoreCollection<
         Profile
@@ -74,7 +74,7 @@ export class WriterComponent implements OnInit {
           this.router.navigate(["/Article"]);
         } else {
           this.prof = profile[0];
-          console.log(this.prof);
+          // console.log(this.prof);
         }
       });
 
@@ -96,7 +96,7 @@ export class WriterComponent implements OnInit {
       this.senderProf.profilePicURL =
         "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg";
     }
-    console.log(mess.value);
+    // console.log(mess.value);
     const userRef: AngularFirestoreDocument<any> = this.as.afs.doc(
       `messages/${new Date()}`
     );

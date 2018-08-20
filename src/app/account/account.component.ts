@@ -60,7 +60,7 @@ export class AccountComponent implements OnInit {
       
       if(user){        
         this.userName = user.displayName;
-        console.log(user.displayName);
+        // console.log(user.displayName);
         // console.log('ngAfter  >>>  '+this.userName);
         this.as.afs.doc<Profile>(`profiles/${this.user.displayName}`).valueChanges()
         .subscribe(profile =>{
@@ -80,7 +80,7 @@ export class AccountComponent implements OnInit {
 
   // detailList;            
   ngOnInit() {
-    console.log('account');
+    // console.log('account');
     
 
     // this.detail = this.afd.list('pages');

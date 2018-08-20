@@ -1,0 +1,39 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+     match /users/{document=**} {
+  		function getRole(role) {
+  		return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles[role]
+  		}
+       allow read, write;
+       allow delete: if(getRole('Admin'))==true;
+     }
+     
+     match /articles/{document=**}{
+  		function getRole(role) {
+  		return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles[role]
+  		}
+  		// allow read: if(getRole('Admin')||getRole('Subscriber')||getRole('Editor'))==true;
+  		allow delete: if(getRole('Admin'))==true;
+  		// allow write, update: if(getRole('Editor') || getRole('Admin'))==true;
+     	allow read, write;
+     }
+     
+     match /profiles/{document=**}{
+  		function getRole(role) {
+  		return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles[role]
+  		}
+  		allow read, write: if(getRole('Admin')||getRole('Subscriber')||getRole('Editor'))==true;
+  		allow delete:  if(getRole('Admin'))==true;
+  		// allow read, write;
+     }
+     
+     match /messages/{document=**}{
+  		function getRole(role) {
+  		return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles[role]
+  		}
+  		allow read, write: if(getRole('Admin')||getRole('Subscriber')||getRole('Editor'))==true;
+  		allow delete: if(getRole('Admin'))==true;
+  		// allow read, write;
+     }
+  }
+}

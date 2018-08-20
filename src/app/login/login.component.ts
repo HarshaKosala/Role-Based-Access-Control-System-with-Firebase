@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
               }
 
   ngOnInit() {
-    console.log('login');
+    // console.log('login');
   }
 
   loginWithFB(){
@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
   }
 
   updateUser(user){
-    console.log(user);
+    // console.log(user);
     const userRef : AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const data: User = {
       uid : user.uid,
